@@ -19,4 +19,7 @@
     <string name="button_divide_text">/</string>
     <string name="button_equal_text">=</string>
     <string name="display_text" />
+    <string name="button_put_in_memory_text">M+</string>
+    <string name="button_get_from_memory_text">MR</string>
+    <string name="error_result">ОШИБКА!</string>
 </resources>
