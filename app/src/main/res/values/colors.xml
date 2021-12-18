@@ -7,7 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="screen_border_color">#575757</color>
-    <color name="button_text_color">#393636</color>
+    <color name="display_border_color">#B0BF9F</color>
+    <color name="button_text_color">#4E4D4D</color>
     <color name="display_color">#DFF3C9</color>
+    <color name="body_backgroundTint">#FFFFFF</color>
+    <color name="grey_button_backgroundTint">#E6E6E6</color>
+    <color name="grey_button_strokeColor">#C6C7C6</color>
+    <color name="red_button_backgroundTint">#FED5D5</color>
+    <color name="red_button_strokeColor">#D5B9B8</color>
+    <color name="green_button_backgroundTint">#CBFACB</color>
+    <color name="green_button_strokeColor">#B3C5AC</color>
+    <color name="blue_button_backgroundTint">#C8E5FA</color>
+    <color name="blue_button_strokeColor">#ACC5D5</color>
 </resources>

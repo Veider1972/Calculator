@@ -1,354 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/gray_plastic">
+    style="@style/Body">
 
-    <FrameLayout
+    <com.google.android.material.circularreveal.CircularRevealFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/screen_border_color">
+        style="@style/DisplayBorder">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/display"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/display_border_width"
-            android:layout_marginTop="@dimen/display_border_width"
-            android:layout_marginRight="@dimen/display_border_width"
-            android:layout_marginBottom="@dimen/display_border_width"
-            android:background="@color/display_color"
-            android:textAlignment="textEnd"
-            android:textSize="@dimen/display_text_size"
-            android:textColor="@color/black"
-            />
-    </FrameLayout>
+            style="@style/Display"/>
 
-    <GridLayout
+    </com.google.android.material.circularreveal.CircularRevealFrameLayout>
+
+    <com.google.android.material.circularreveal.CircularRevealGridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/button_layout_margin"
         android:columnCount="4"
         android:rowCount="5">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_reset"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/RedButtons"
             android:layout_row="0"
-            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:background="@drawable/button_square_red"
-            android:text="@string/button_reset_text"
-            android:textSize="@dimen/button_text_size"/>
-        <Button
+            android:text="@string/button_reset_text"/>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_put_in_memory"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreenButtons"
             android:layout_row="0"
-            android:layout_rowWeight="1"
             android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:background="@drawable/button_square_green"
-            android:text="@string/button_put_in_memory_text"
-            android:textSize="@dimen/button_text_size" />
-        <Button
+            android:text="@string/button_put_in_memory_text"/>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_get_from_memory"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreenButtons"
             android:layout_row="0"
-            android:layout_rowWeight="1"
             android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:background="@drawable/button_square_green"
-            android:text="@string/button_get_from_memory_text"
-            android:textSize="@dimen/button_text_size" />
-        <Button
+            android:text="@string/button_get_from_memory_text"/>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_negative"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="4"
-            android:layout_rowWeight="1"
             android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:background="@drawable/button_square_grey"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_invert_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_plus"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/BlueButtons"
             android:layout_row="0"
-            android:layout_rowWeight="1"
             android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_blue"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_plus_text" />
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_7"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="1"
-            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_seven_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_8"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="1"
-            android:layout_rowWeight="1"
             android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_eight_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_9"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="1"
-            android:layout_rowWeight="1"
             android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_nine_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_minus"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/BlueButtons"
             android:layout_row="1"
-            android:layout_rowWeight="1"
             android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_blue"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_minus_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_4"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="2"
-            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_four_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_5"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="2"
-            android:layout_rowWeight="1"
             android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_five_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_6"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="2"
-            android:layout_rowWeight="1"
             android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_six_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_multiply"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/BlueButtons"
             android:layout_row="2"
-            android:layout_rowWeight="1"
             android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_blue"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_multiply_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_1"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="3"
-            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_one_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_2"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="3"
-            android:layout_rowWeight="1"
             android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_two_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_3"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="3"
-            android:layout_rowWeight="1"
             android:layout_column="2"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_three_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_divide"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/BlueButtons"
             android:layout_row="3"
-            android:layout_rowWeight="1"
             android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_blue"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_divide_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_0"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="4"
-            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_zero_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_dot"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/GreyButtons"
             android:layout_row="4"
-            android:layout_rowWeight="1"
             android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:layout_margin="2sp"
-            android:background="@drawable/button_square_grey"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_dot_text" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_equal"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            style="@style/RedButtons"
             android:layout_row="4"
-            android:layout_rowWeight="1"
             android:layout_column="3"
-            android:layout_columnWeight="1"
-            android:layout_margin="@dimen/button_layout_margin"
-            android:background="@drawable/button_square_red"
-            android:textAlignment="gravity"
-            android:gravity="center"
-            android:textColor="@color/button_text_color"
-            android:textSize="@dimen/button_text_size"
             android:text="@string/button_equal_text" />
 
-
-
-
-    </GridLayout>
-</LinearLayout>
+    </com.google.android.material.circularreveal.CircularRevealGridLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
