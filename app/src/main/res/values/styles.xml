@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Calculator" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:colorBackground">@color/body_backgroundTint</item>
+    </style>
+
+    <style name="Body" parent="Calculator">
+        <item name="backgroundTint">@color/body_backgroundTint</item>
+    </style>
+
+    <style name="DisplayBorder" parent="Calculator">
+        <item name="android:background">@color/display_border_color</item>
+        <item name="android:layout_margin">@dimen/button_layout_margin</item>
+        <item name="android:elevation">@dimen/button_elevation</item>
+    </style>
+
+    <style name="Display" parent="Calculator">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/display_border_width</item>
+        <item name="android:background">@color/display_color</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">@dimen/display_text_size</item>
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="fontFamily">sans-serif-condensed-light</item>
+    </style>
+
+    <style name="Buttons" parent="Calculator">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_marginRight">@dimen/button_layout_margin</item>
+        <item name="android:layout_marginLeft">@dimen/button_layout_margin</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/button_text_color</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="elevation">@dimen/button_elevation</item>
+        <item name="cornerRadius">@dimen/button_corner_radius</item>
+        <item name="strokeWidth">@dimen/button_border_width</item>
+        <item name="fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="GreyButtons" parent="Buttons">
+        <item name="backgroundTint">@color/grey_button_backgroundTint</item>
+        <item name="strokeColor">@color/grey_button_strokeColor</item>
+    </style>
+
+    <style name="RedButtons" parent="Buttons">
+        <item name="backgroundTint">@color/red_button_backgroundTint</item>
+        <item name="strokeColor">@color/red_button_strokeColor</item>
+    </style>
+
+    <style name="GreenButtons" parent="Buttons">
+        <item name="backgroundTint">@color/green_button_backgroundTint</item>
+        <item name="strokeColor">@color/grey_button_strokeColor</item>
+    </style>
+
+    <style name="BlueButtons" parent="Buttons">
+        <item name="backgroundTint">@color/blue_button_backgroundTint</item>
+        <item name="strokeColor">@color/blue_button_strokeColor</item>
+    </style>
+
+</resources>

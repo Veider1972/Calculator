@@ -1,20 +1,62 @@
 package ru.gb.calculator;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Calculator {
+public class Calculator implements Parcelable {
     private String firstValue = "";
     private String secondValue = "";
     private String memoValue = "";
     private String resultValue = "";
     private CurrentState currentState = CurrentState.FIRST_NUM_INPUT;
     private Operator operator = Operator.NONE;
+    private AppCompatActivity activity;
 
-    private final AppCompatActivity activity;
+    public void setActivity(AppCompatActivity activity) {
+        this.activity = activity;
+    }
 
     public Calculator(AppCompatActivity activity) {
         this.activity = activity;
+    }
+
+    protected Calculator(Parcel in) {
+        firstValue = in.readString();
+        secondValue = in.readString();
+        memoValue = in.readString();
+        resultValue = in.readString();
+        currentState = CurrentState.values()[in.readInt()];
+        operator = Operator.values()[in.readInt()];
+    }
+
+    public static final Creator<Calculator> CREATOR = new Creator<Calculator>() {
+        @Override
+        public Calculator createFromParcel(Parcel in) {
+            return new Calculator(in);
+        }
+
+        @Override
+        public Calculator[] newArray(int size) {
+            return new Calculator[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(firstValue);
+        dest.writeString(secondValue);
+        dest.writeString(memoValue);
+        dest.writeString(resultValue);
+        dest.writeInt(currentState.ordinal());
+        dest.writeInt(operator.ordinal());
     }
 
     private enum CurrentState {
@@ -28,6 +70,12 @@ public class Calculator {
     public String put(Buttons button) {
         String str = activity.getString(R.string.error_result);
         if (firstValue.equals(str) && button != Buttons.RESET) return "";
+        if (currentState == CurrentState.OPERATOR_INPUT &&
+                            button != Buttons.PLUS &&
+                            button != Buttons.MINUS &&
+                            button != Buttons.MULTIPLY &&
+                            button != Buttons.DIVIDE &&
+                            button != Buttons.NEGATIVE) reset();
         switch (button) {
             case ZERO:
             case ONE:
@@ -51,11 +99,11 @@ public class Calculator {
             case DOT:
                 switch (currentState) {
                     case FIRST_NUM_INPUT:
-                        if (!firstValue.contains("."))
+                        if (!firstValue.contains(","))
                             firstValue += button.getValue();
                         break;
                     case SECOND_NUM_INPUT:
-                        if (!secondValue.contains("."))
+                        if (!secondValue.contains(","))
                             secondValue += button.getValue();
                         break;
                 }
@@ -90,6 +138,7 @@ public class Calculator {
                 return calculateResult();
             case RESET:
                 reset();
+                break;
             case PUT_MEMORY:
                 switch (currentState) {
                     case FIRST_NUM_INPUT:
