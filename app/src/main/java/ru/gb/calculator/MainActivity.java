@@ -2,12 +2,16 @@ package ru.gb.calculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textview.MaterialTextView;
+
+import java.util.prefs.Preferences;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
                    button_equal;
     MaterialTextView display;
     private Calculator calculator;
+    private String themeName;
+    private final String themeDayName = "Calculator";
+    private final String themeNightName = "Calculator.Night";
 
     private static final String DISPLAY_TEXT = "DISPLAY_TEXT";
     public static final String CALCULATOR = "CALCULATOR";
@@ -28,6 +35,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        themeName = sharedPreferences.getString(LaunchActivity.THEME_SELECTION,"Calculator");
+
+        String launchThemeName = getIntent().getStringExtra(LaunchActivity.THEME_SELECTION);
+        if (!themeName.equals(launchThemeName)) {
+            switch (launchThemeName){
+                case themeDayName:
+                    setTheme(R.style.Calculator);
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    break;
+                case themeNightName:
+                    setTheme(R.style.Calculator);
+                    getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    break;
+            }
+        }
         if (calculator == null) calculator = new Calculator(this);
 
         display = findViewById(R.id.display);
@@ -74,5 +98,15 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         outState.putParcelable(CALCULATOR,calculator);
         outState.putString(DISPLAY_TEXT, display.getText().toString());
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(LaunchActivity.THEME_SELECTION, themeName);
     }
 }
